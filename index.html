@@ -111,7 +111,7 @@
 			// Create the dog listing markup
 			var createListing = function (dog) {
 				var content =
-					'<h2></h2>' +
+					'<h2>' + dog.name + '</h2>' +
 
 					'<p><img src=""></p>' +
 
@@ -135,26 +135,35 @@
 				// Template
 				// <h2>{Dog Name}</h2>
 				// <p><img alt="A photo of {Dog Name}" src="photo.jpg"></p>
-				//
+        //
 				// <p>
 				// 		Age: {age}<br>
 				// 		Size: {size}<br>
 				// 		Gender: {gender}<br>
 				// 		Breeds: {breed1}, {breed2}
 				// </p>
-				//
+        //
 				// <strong>Other Details:</strong>
 				// <ul>
 				// 		<li>{detail1: ex. No Cats}</li>
 				// </ul>
-				//
+        //
 				// <p>{description}</p>
-				return '';
+				// return '';
 			};
+
+      // Create a list of adoptable dogs
+      var dogs = '';
+      for (var dog in apiData) {
+        if (apiData.hasOwnProperty(dog)) {
+          dogs += createListing(apiData[dog])
+        }
+      }
 
 			// Load list of adoptable dogs into the DOM
 			var dogList = document.querySelector('#dogs');
-			dogList.innerHTML = getDogs();
+			// dogList.innerHTML = getDogs();
+      dogList.innerHTML = dogs;
 
 		</script>
 	</body>

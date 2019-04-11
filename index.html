@@ -91,7 +91,7 @@
 					gender: 'F',
 					details: 'Neutered',
 					photo: 'img/elsa.jpg',
-					description: 'Take a caulk league pink main sheet. Letter of Marque avast coxswain fire in the hole. Yardarm schooner piracy Jack Tar. Yardarm hardtack rutters poop deck.'
+					description: 'Take    a caulk league pink main sheet. Letter of Marque avast coxswain fire in the hole. Yardarm schooner piracy Jack Tar. Yardarm     hardtack rutters poop deck.'
 				},
 				4: {
 					name: 'Colt',
@@ -104,7 +104,7 @@
 					gender: 'M',
 					details: '',
 					photo: 'img/colt.jpg',
-					description: '     Come about Nelsons folly  black jack measured fer yer chains.  Hail-shot tack sloop grapple.  Boom sheet spirits man-of-war.  Scuttle bounty hulk sloop.'
+					description: '     Come about    Nelsons folly  black jack measured fer yer chains.  Hail-shot tack sloop grapple.  Boom sheet spirits man-of-war.         Scuttle bounty hulk sloop.'
 				}
 			};
 
@@ -135,12 +135,12 @@
 						'Age: ' + dog.age + '<br>' +
 						'Size: ' + dog.size + ' <br>' +
 						'Gender: ' + dog.gender + ' <br>' +
-						'Breeds: ' + dog.breeds.join(', ') + ' ' +
+						'Breeds: ' + dog.breeds.join(', ') +
 					'</p>' +
 
 					'<strong>Other Details: ' + getOtherDetails(dog) + '</strong>' +
 
-					'<p>Description: ' + dog.description.trim() + '</p>';
+					'<p>Description: ' + dog.description.replace(/ +(?= )/g,'').trim() + '</p>';
 
 				return content;
 

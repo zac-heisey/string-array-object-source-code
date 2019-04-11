@@ -108,23 +108,39 @@
 				}
 			};
 
+      // Create list of other dog details
+      function getOtherDetails(dog) {
+        // If there are no details, return 'no details message'
+        if (dog.details === '') {
+          return 'No additional details';
+        }
+        // Convert the string value to an array
+        var detailsArray = dog.details.split(', ');
+        // Loop through array and create list of details
+        var details = '';
+        for (var i = 0; i < detailsArray.length; i++) {
+          details += '<li>' + detailsArray[i] + '</li>'
+        }
+        return '<ul>' + details + '</ul>';
+      }
+
 			// Create the dog listing markup
 			var createListing = function (dog) {
 				var content =
 					'<h2>' + dog.name.toUpperCase() + '</h2>' +
 
-					'<p><img src=""></p>' +
+					`<p><img src="${dog.photo}"></p>` +
 
 					'<p>' +
-						'Age: <br>' +
-						'Size: <br>' +
-						'Gender: <br>' +
-						'Breeds: ' +
+						'Age: ' + dog.age + '<br>' +
+						'Size: ' + dog.size + ' <br>' +
+						'Gender: ' + dog.gender + ' <br>' +
+						'Breeds: ' + dog.breeds.join(', ') + ' ' +
 					'</p>' +
 
-					'<strong>Other Details:</strong>' +
+					'<strong>Other Details: ' + getOtherDetails(dog) + '</strong>' +
 
-					'<p>Description</p>';
+					'<p>Description: ' + dog.description.trim() + '</p>';
 
 				return content;
 
